@@ -5,12 +5,12 @@ namespace Assets.Scripts
     public class BatControl : MonoBehaviour {
         public float PlayerVelocity;
         private Vector3 _playerPosition;
-        private Vector2 _mousePosition;
+        private float _mousePosition;
 
         // Use this for initialization
         void Start () {
             _playerPosition = gameObject.transform.position;
-            _mousePosition = Input.mousePosition;
+            _mousePosition = Input.mousePosition.x;
 
 
         }
@@ -19,8 +19,9 @@ namespace Assets.Scripts
         void Update () {
             // горизонтальное движение
 
-            _playerPosition.z += ChangePosition(Input.mousePosition) * PlayerVelocity;
-            _mousePosition = Input.mousePosition;
+            _playerPosition.z += ChangePosition(Input.mousePosition.x) * PlayerVelocity;
+            
+            _mousePosition = Input.mousePosition.x;
 
             // выход из игры
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -29,18 +30,19 @@ namespace Assets.Scripts
             }
 
             // обновим позицию платформы
+            _playerPosition = new Vector3(1f, 0.62f, Mathf.Clamp(_playerPosition.z, 4.13f, 14.453f));
             transform.position = _playerPosition;
         }
 
-        private int ChangePosition(Vector2 position)
+        private float ChangePosition(float x)
         {
-            if (_mousePosition.x < position.x)
+            if (_mousePosition < x)
             {
-                return -1;
+                return -x/_mousePosition;
             }
-            if(_mousePosition.x > position.x)
+            if(_mousePosition > x)
             {
-                return 1;
+                return x / _mousePosition;
             }
             return 0;
         }

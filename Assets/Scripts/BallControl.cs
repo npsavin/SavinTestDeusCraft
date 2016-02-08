@@ -7,7 +7,7 @@ namespace Assets.Scripts
 
 
         private bool _ballIsActive;
-        private Vector3 _ballPosition;
+        //private Vector3 _ballPosition;
         private Vector3 _ballInitialForce;
 
         // GameObject
@@ -26,7 +26,7 @@ namespace Assets.Scripts
             _ballIsActive = false;
 
             // запоминаем положение
-            _ballPosition = transform.position;
+           // _ballPosition = transform.position;
         }
 
         private void Update()
@@ -44,25 +44,16 @@ namespace Assets.Scripts
                     _ballIsActive = true;
                 }
 
-                if (!_ballIsActive && PlayerObject != null)
-                {
-                    // задаем новую позицию шарика
-                    _ballPosition.x = PlayerObject.transform.position.x;
+                //if (!_ballIsActive && PlayerObject != null)
+                //{
+                //    // задаем новую позицию шарика
+                //    _ballPosition.x = PlayerObject.transform.position.x;
 
-                    // устанавливаем позицию шара
-                    transform.position = _ballPosition;
-                }
+                //    // устанавливаем позицию шара
+                //    transform.position = _ballPosition;
+                //}
                 
-                // проверка падения шара
-                if (_ballIsActive && transform.position.y < -6)
-                {
-                    _ballIsActive = !_ballIsActive;
-                    _ballPosition.x = PlayerObject.transform.position.x;
-                    _ballPosition.y = -4.2f;
-                    transform.position = _ballPosition;
-
-                    _rb.isKinematic = true;
-                }
+              
             }
         }
     }
