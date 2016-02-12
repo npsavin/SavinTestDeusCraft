@@ -20,7 +20,7 @@ namespace Assets.Scripts
 
             _rb = GetComponent<Rigidbody>();
             // создаем силу
-            _ballInitialForce = new Vector3(300.0f, 0, 0);
+            _ballInitialForce = new Vector3(600.0f, 0, 0);
 
             // переводим в неактивное состояние
             _ballIsActive = false;

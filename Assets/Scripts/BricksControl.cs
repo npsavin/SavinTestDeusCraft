@@ -1,13 +1,29 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class BricksControl : MonoBehaviour
+namespace Assets.Scripts
 {
-
-    public GameObject brickParticle;
-    
-    void OnCollisionEnter(Collision other)
+    public class BricksControl : MonoBehaviour
     {
-        Destroy(gameObject);
+        private Rigidbody _rb;
+        void Start()
+        {
+            _rb = GetComponent<Rigidbody>();
+
+        }
+
+        void Update()
+        {
+            _rb.AddForce(new Vector3(1000.0f, -100f, 0));
+        }
+        void OnCollisionEnter(Collision col)
+        {
+        
+            if (col.gameObject.name == "Ball")
+            {
+                Destroy(gameObject);
+            
+            }
+        
+        }
     }
 }
