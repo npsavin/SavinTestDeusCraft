@@ -13,15 +13,16 @@ namespace Assets.Scripts
 
         void Update()
         {
-            _rb.AddForce(new Vector3(1000.0f, -100f, 0));
+            _rb.AddForce(0, -10.0f, 0);
         }
         void OnCollisionEnter(Collision col)
         {
         
             if (col.gameObject.name == "Ball")
             {
+                
                 Destroy(gameObject);
-            
+                
             }
         
         }
