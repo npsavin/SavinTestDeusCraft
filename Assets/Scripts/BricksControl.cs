@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.ViewModel;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -17,14 +18,18 @@ namespace Assets.Scripts
         }
         void OnCollisionEnter(Collision col)
         {
-        
-            if (col.gameObject.name == "Ball")
+
+            if (col.gameObject.tag == "Player")
             {
-                
+
+
+                GM.Instance.SetCountOfBrick();
+                GM.Instance.SetCountOfScope(100);
                 Destroy(gameObject);
                 
             }
-        
+
+
         }
     }
 }

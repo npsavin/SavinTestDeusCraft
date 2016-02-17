@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.2f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -80,8 +82,13 @@
     <Compile Include="Assets\Scripts\BallControl.cs" />
     <Compile Include="Assets\Scripts\BatControl.cs" />
     <Compile Include="Assets\Scripts\BricksControl.cs" />
-    <Compile Include="Assets\Scripts\KillField.cs" />
+    <Compile Include="Assets\Scripts\GM.cs" />
+    <Compile Include="Assets\Scripts\LoadOnClickStart.cs" />
     <Compile Include="Assets\Scripts\Model\Level.cs" />
+    <Compile Include="Assets\Scripts\ViewModel\ViewModelLevel.cs" />
+    <Compile Include="Assets\Scripts\ViewModel\ViewModelLevel1.cs" />
+    <Compile Include="Assets\Scripts\ViewModel\ViewModelLevel2.cs" />
+    <Compile Include="Assets\Scripts\ViewModel\ViewModelLevel3.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

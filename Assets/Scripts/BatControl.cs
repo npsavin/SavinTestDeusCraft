@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -7,7 +8,7 @@ namespace Assets.Scripts
         private Vector3 _playerPosition;
         private float _mousePosition;
 
-        // Use this for initialization
+        
         void Start () {
             _playerPosition = gameObject.transform.position;
             _mousePosition = Input.mousePosition.x;
@@ -15,21 +16,21 @@ namespace Assets.Scripts
 
         }
 	
-        // Update is called once per frame
+        
         void Update () {
-            // горизонтальное движение
+            
 
             _playerPosition.z += ChangePosition(Input.mousePosition.x) * PlayerVelocity;
             
             _mousePosition = Input.mousePosition.x;
 
-            // выход из игры
+           
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Application.Quit();
+                SceneManager.LoadScene("Menu");
             }
 
-            // обновим позицию платформы
+            
             _playerPosition = new Vector3(1f, 0.62f, Mathf.Clamp(_playerPosition.z, 4.13f, 14.453f));
             transform.position = _playerPosition;
         }
